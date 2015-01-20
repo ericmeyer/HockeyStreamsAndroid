@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HockeyStreamsAndroid.iml" filepath="$PROJECT_DIR$/HockeyStreamsAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HockeyStreamsClient/HockeyStreamsClient.iml" filepath="$PROJECT_DIR$/HockeyStreamsClient/HockeyStreamsClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/mobile/mobile.iml" filepath="$PROJECT_DIR$/mobile/mobile.iml" />
       <module fileurl="file://$PROJECT_DIR$/tv/tv.iml" filepath="$PROJECT_DIR$/tv/tv.iml" />
     </modules>

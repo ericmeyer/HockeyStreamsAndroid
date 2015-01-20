@@ -1,0 +1,3 @@
+[submodule "HockeyStreamsClient"]
+	path = HockeyStreamsClient
+	url = git@github.com:ericmeyer/HockeyStreamsJavaClient.git
