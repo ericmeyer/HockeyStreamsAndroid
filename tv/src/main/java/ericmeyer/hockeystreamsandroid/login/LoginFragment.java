@@ -79,16 +79,16 @@ public class LoginFragment extends Fragment {
         return view;
     }
 
+    public void setAction(AttemptLogin action) {
+        this.attemptLoginAction = action;
+    }
+
     private String getPassword() {
         return password.getText().toString();
     }
 
     private String getUsername() {
         return username.getText().toString();
-    }
-
-    public void setAction(AttemptLogin action) {
-        this.attemptLoginAction = action;
     }
 
 //    // TODO: Rename method, update argument and hook method into UI event
