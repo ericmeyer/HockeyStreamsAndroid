@@ -18,6 +18,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".getlivestreams.LiveStreamsListActivity"
+            android:label="@string/title_activity_live_streams_list" >
+        </activity>
     </application>
 
 </manifest>

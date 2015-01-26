@@ -1,6 +1,8 @@
 package ericmeyer.hockeystreamsandroid.login;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.app.Fragment;
@@ -13,8 +15,8 @@ import android.widget.EditText;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import ericmeyer.hockeystreamsandroid.R;
+import ericmeyer.hockeystreamsandroid.getlivestreams.LiveStreamsListActivity;
 import hockeystreamsclient.apache.RemoteClient;
-import hockeystreamsclient.http.Client;
 import hockeystreamsclient.login.AttemptLogin;
 import hockeystreamsclient.login.LoginView;
 import hockeystreamsclient.login.Response;
@@ -26,6 +28,7 @@ public class LoginFragment extends Fragment implements LoginView {
     private EditText username;
     private Button attemptLogin;
     private AttemptLogin attemptLoginAction;
+    private CurrentUser currentUser;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -49,12 +52,18 @@ public class LoginFragment extends Fragment implements LoginView {
                 new AttemptLoginTask(attemptLoginAction).execute(getUsername(), getPassword());
             }
         });
+
+        SharedPreferences currentUserSharedPreferences = getActivity().getSharedPreferences(LocalCurrentUser.CURRENT_USER_TAG, 0);
+        currentUser = new LocalCurrentUser(currentUserSharedPreferences);
         return view;
     }
 
     @Override
     public void loginWasSuccessful(Response loginResponse) {
         System.out.println("loginResponse.getToken() = " + loginResponse.getToken());
+        currentUser.put(loginResponse);
+        Intent intent = new Intent(this.getActivity(), LiveStreamsListActivity.class);
+        startActivity(intent);
     }
 
     @Override
@@ -76,6 +85,14 @@ public class LoginFragment extends Fragment implements LoginView {
 
     public AttemptLogin getAction() {
         return attemptLoginAction;
+    }
+
+    public void setCurrentUser(CurrentUser currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    public CurrentUser getCurrentUser() {
+        return currentUser;
     }
 
     private class AttemptLoginTask extends AsyncTask<String, Void, Void> {
