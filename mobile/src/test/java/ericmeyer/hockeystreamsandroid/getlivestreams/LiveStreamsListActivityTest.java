@@ -16,8 +16,6 @@ import ericmeyer.hockeystreamsandroid.login.LocalCurrentUser;
 import hockeystreamsclient.login.Response;
 
 import static org.hamcrest.CoreMatchers.containsString;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 @Config(emulateSdk = 18)

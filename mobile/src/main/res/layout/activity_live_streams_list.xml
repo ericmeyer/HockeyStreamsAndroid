@@ -13,4 +13,12 @@
         android:layout_height="wrap_content"
         />
 
+    <fragment
+        android:id="@+id/live_streams_list_fragment"
+        android:layout_below="@id/live_streams_list_welcome"
+        android:name="ericmeyer.hockeystreamsandroid.getlivestreams.LiveStreamsListFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
 </RelativeLayout>
