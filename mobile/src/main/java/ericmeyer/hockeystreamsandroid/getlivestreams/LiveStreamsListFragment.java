@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import org.apache.http.impl.client.DefaultHttpClient;
 
@@ -21,6 +22,7 @@ public class LiveStreamsListFragment extends ListFragment implements LiveStreams
 
     private LiveStreamsListAdapter adapter;
     private GetLiveAction getLiveAction;
+    private TextView status;
 
     public LiveStreamsListFragment() {
         // Required empty public constructor
@@ -41,6 +43,7 @@ public class LiveStreamsListFragment extends ListFragment implements LiveStreams
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_live_streams_list, container, false);
+        status = (TextView) view.findViewById(R.id.live_streams_list_status);
         setUpRefreshButton(view);
         return view;
     }
@@ -50,6 +53,7 @@ public class LiveStreamsListFragment extends ListFragment implements LiveStreams
         refreshButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                status.setText(getString(R.string.live_streams_list_refreshing));
                 new GetLiveTask(getLiveAction).execute(getCurrentUserToken());
             }
         });
@@ -68,6 +72,7 @@ public class LiveStreamsListFragment extends ListFragment implements LiveStreams
         getActivity().runOnUiThread(new Runnable() {
             @Override
             public void run() {
+                status.setText("");
                 adapter.setGames(response.getGames());
                 adapter.notifyDataSetChanged();
             }
@@ -75,7 +80,9 @@ public class LiveStreamsListFragment extends ListFragment implements LiveStreams
     }
 
     @Override
-    public void getLiveFailed() {}
+    public void getLiveFailed() {
+        status.setText("Failed to get list of live games");
+    }
 
     private String getCurrentUserToken() {
         SharedPreferences currentUserSharedPreferences = getActivity().getSharedPreferences(

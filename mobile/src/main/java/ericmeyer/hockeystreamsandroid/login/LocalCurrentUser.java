@@ -23,12 +23,19 @@ public class LocalCurrentUser implements CurrentUser {
         editor.commit();
     }
 
+    @Override
+    public void logout() {
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.clear();
+        editor.commit();
+    }
+
     public String getCurrentToken() {
-        return sharedPreferences.getString(TOKEN, "DEFAULT");
+        return sharedPreferences.getString(TOKEN, null);
     }
 
     public String getCurrentUsername() {
-        return sharedPreferences.getString(USERNAME, "DEFAULT");
+        return sharedPreferences.getString(USERNAME, null);
     }
 
 }

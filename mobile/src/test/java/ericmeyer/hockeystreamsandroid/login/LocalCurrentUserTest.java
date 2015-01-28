@@ -13,6 +13,7 @@ import hockeystreamsclient.login.Response;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.nullValue;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class LocalCurrentUserTest {
@@ -50,6 +51,18 @@ public class LocalCurrentUserTest {
         loginResponse.setUsername("some user");
         currentUser.put(loginResponse);
         assertThat(currentUser.getCurrentUsername(), is(equalTo("some user")));
+    }
+
+    @Test
+    public void testLogsTheCurrentUserOut() {
+        LocalCurrentUser currentUser = new LocalCurrentUser(sharedPreferences);
+        Response loginResponse = new Response();
+        loginResponse.setUsername("some user");
+        currentUser.put(loginResponse);
+        currentUser.logout();
+
+        assertThat(currentUser.getCurrentUsername(), is(nullValue()));
+        assertThat(currentUser.getCurrentToken(), is(nullValue()));
     }
 
 }

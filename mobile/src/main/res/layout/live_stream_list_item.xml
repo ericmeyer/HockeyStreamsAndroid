@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="12dp">
 
     <TextView
         android:id="@+id/live_stream_list_item_home_team"
+        android:textSize="24sp"
         android:text="@string/home_team_placeholder"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+
+    <TextView
+        android:id="@+id/live_stream_list_item_feed_type"
+        android:textSize="12sp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         />
 

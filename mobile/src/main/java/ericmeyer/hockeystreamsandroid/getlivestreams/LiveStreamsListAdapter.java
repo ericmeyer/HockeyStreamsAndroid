@@ -28,9 +28,13 @@ public class LiveStreamsListAdapter extends ArrayAdapter<LiveStream> {
             convertView = activity.getLayoutInflater().inflate(R.layout.live_stream_list_item, null);
         }
         TextView homeTeam = (TextView) convertView.findViewById(R.id.live_stream_list_item_home_team);
+        TextView feedType = (TextView) convertView.findViewById(R.id.live_stream_list_item_feed_type);
 
         Response.Game game = games.get(position);
         homeTeam.setText(game.getHomeTeam() + " " + String.valueOf(game.getID()));
+        if (game.getFeedType() != null) {
+            feedType.setText(game.getFeedType());
+        }
 
         return convertView;
     }
