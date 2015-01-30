@@ -1,2 +1,2 @@
-include ':mobile', ':tv', ':HockeyStreamsClient'
+include ':mobile', ':tv', ':HockeyStreamsClient', 'HockeyStreamsSharedAndroid'
 project(':HockeyStreamsClient').projectDir = new File(settingsDir, './HockeyStreamsClient')

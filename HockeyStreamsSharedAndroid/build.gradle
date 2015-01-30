@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'robolectric'
 
 buildscript {
@@ -15,7 +15,6 @@ android {
     buildToolsVersion "21.1.2"
 
     defaultConfig {
-        applicationId "ericmeyer.hockeystreamsandroid"
         minSdkVersion 15
         targetSdkVersion 21
         versionCode 1
@@ -35,8 +34,6 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile project(":HockeyStreamsClient")
-    compile project(":HockeyStreamsSharedAndroid")
     compile 'com.android.support:appcompat-v7:21.0.3'
 
     testCompile 'junit:junit:4.11'
