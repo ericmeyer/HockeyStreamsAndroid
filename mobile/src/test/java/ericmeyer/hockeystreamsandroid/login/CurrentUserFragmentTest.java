@@ -14,9 +14,6 @@ import org.robolectric.annotation.Config;
 import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.util.FragmentTestUtil;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import ericmeyer.hockeystreamsandroid.R;
 import ericmeyer.hockeystreamsandroid.getlivestreams.LiveStreamsListActivity;
 import hockeystreamsclient.login.Response;
