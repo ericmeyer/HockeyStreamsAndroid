@@ -1,11 +1,11 @@
 package ericmeyer.hockeystreamsandroid.login;
 
 
+import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +16,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 
 import ericmeyer.hockeystreamsandroid.R;
 import ericmeyer.hockeystreamsandroid.getlivestreams.LiveStreamsListActivity;
+import ericmeyer.hockeystreamssharedandroid.login.CurrentUser;
+import ericmeyer.hockeystreamssharedandroid.login.LocalCurrentUser;
 import hockeystreamsclient.apache.RemoteClient;
 import hockeystreamsclient.login.AttemptLogin;
 import hockeystreamsclient.login.LoginView;

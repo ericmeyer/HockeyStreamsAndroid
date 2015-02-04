@@ -1,4 +1,4 @@
-package ericmeyer.hockeystreamsandroid.login;
+package ericmeyer.hockeystreamssharedandroid.login;
 
 import android.content.SharedPreferences;
 
@@ -9,6 +9,7 @@ import org.robolectric.tester.android.content.TestSharedPreferences;
 import java.util.HashMap;
 import java.util.Map;
 
+import ericmeyer.hockeystreamssharedandroid.login.LocalCurrentUser;
 import hockeystreamsclient.login.Response;
 
 import static org.hamcrest.CoreMatchers.equalTo;

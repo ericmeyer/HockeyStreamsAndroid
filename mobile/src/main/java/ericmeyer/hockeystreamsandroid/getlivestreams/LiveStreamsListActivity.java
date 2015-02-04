@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import ericmeyer.hockeystreamsandroid.R;
-import ericmeyer.hockeystreamsandroid.login.LocalCurrentUser;
+import ericmeyer.hockeystreamssharedandroid.login.LocalCurrentUser;
 
 public class LiveStreamsListActivity extends Activity {
 

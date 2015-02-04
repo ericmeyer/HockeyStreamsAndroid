@@ -16,6 +16,7 @@ import org.robolectric.util.FragmentTestUtil;
 
 import ericmeyer.hockeystreamsandroid.R;
 import ericmeyer.hockeystreamsandroid.getlivestreams.LiveStreamsListActivity;
+import ericmeyer.hockeystreamssharedandroid.login.CurrentUser;
 import hockeystreamsclient.login.AttemptLogin;
 import hockeystreamsclient.login.LoginView;
 import hockeystreamsclient.login.Response;

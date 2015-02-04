@@ -12,7 +12,7 @@ import org.robolectric.annotation.Config;
 import org.robolectric.util.ActivityController;
 
 import ericmeyer.hockeystreamsandroid.R;
-import ericmeyer.hockeystreamsandroid.login.LocalCurrentUser;
+import ericmeyer.hockeystreamssharedandroid.login.LocalCurrentUser;
 import hockeystreamsclient.login.Response;
 
 import static org.hamcrest.CoreMatchers.containsString;

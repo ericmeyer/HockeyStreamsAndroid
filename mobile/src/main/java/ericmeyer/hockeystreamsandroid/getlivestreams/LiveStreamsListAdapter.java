@@ -12,7 +12,7 @@ import java.util.List;
 import ericmeyer.hockeystreamsandroid.R;
 import hockeystreamsclient.getlive.Response;
 
-public class LiveStreamsListAdapter extends ArrayAdapter<LiveStream> {
+public class LiveStreamsListAdapter extends ArrayAdapter<Response.Game> {
     private final Activity activity;
     private List<Response.Game> games;
 

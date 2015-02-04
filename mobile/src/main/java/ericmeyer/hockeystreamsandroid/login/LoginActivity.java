@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import ericmeyer.hockeystreamsandroid.R;
+import ericmeyer.hockeystreamssharedandroid.login.LocalCurrentUser;
 
 public class LoginActivity extends Activity {
 

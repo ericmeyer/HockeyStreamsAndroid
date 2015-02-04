@@ -1,4 +1,4 @@
-package ericmeyer.hockeystreamsandroid.login;
+package ericmeyer.hockeystreamssharedandroid.login;
 
 import hockeystreamsclient.login.Response;
 

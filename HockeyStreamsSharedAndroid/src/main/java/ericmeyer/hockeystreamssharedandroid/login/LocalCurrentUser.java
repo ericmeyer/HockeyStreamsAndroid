@@ -1,7 +1,8 @@
-package ericmeyer.hockeystreamsandroid.login;
+package ericmeyer.hockeystreamssharedandroid.login;
 
 import android.content.SharedPreferences;
 
+import ericmeyer.hockeystreamssharedandroid.login.CurrentUser;
 import hockeystreamsclient.login.Response;
 
 public class LocalCurrentUser implements CurrentUser {

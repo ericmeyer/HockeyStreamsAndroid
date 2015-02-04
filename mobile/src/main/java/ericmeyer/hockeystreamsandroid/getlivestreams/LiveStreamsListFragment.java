@@ -12,7 +12,7 @@ import android.widget.TextView;
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import ericmeyer.hockeystreamsandroid.R;
-import ericmeyer.hockeystreamsandroid.login.LocalCurrentUser;
+import ericmeyer.hockeystreamssharedandroid.login.LocalCurrentUser;
 import hockeystreamsclient.apache.RemoteClient;
 import hockeystreamsclient.getlive.GetLiveAction;
 import hockeystreamsclient.getlive.LiveStreamsView;
