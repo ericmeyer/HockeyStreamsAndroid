@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ericmeyer.hockeystreamsandroid.R;
-import hockeystreamsclient.getlive.Response;
+import hockeystreamsclient.getlive.Game;
 
-public class LiveStreamsListAdapter extends ArrayAdapter<Response.Game> {
+public class LiveStreamsListAdapter extends ArrayAdapter<Game> {
     private final Activity activity;
-    private List<Response.Game> games;
+    private List<Game> games;
 
     public LiveStreamsListAdapter(Activity activity) {
         super(activity, 0);
@@ -24,22 +24,25 @@ public class LiveStreamsListAdapter extends ArrayAdapter<Response.Game> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
+        Game game = games.get(position);
+        return populateView(convertView, game);
+    }
+
+    public View populateView(View convertView, Game game) {
         if (convertView == null) {
             convertView = activity.getLayoutInflater().inflate(R.layout.live_stream_list_item, null);
         }
         TextView homeTeam = (TextView) convertView.findViewById(R.id.live_stream_list_item_home_team);
         TextView feedType = (TextView) convertView.findViewById(R.id.live_stream_list_item_feed_type);
 
-        Response.Game game = games.get(position);
         homeTeam.setText(game.getHomeTeam() + " " + String.valueOf(game.getID()));
         if (game.getFeedType() != null) {
             feedType.setText(game.getFeedType());
         }
-
         return convertView;
     }
 
-    public void setGames(List<Response.Game> games) {
+    public void setGames(List<Game> games) {
         this.games = games;
     }
 
