@@ -24,7 +24,7 @@ public class LiveStreamsListAdapter extends ArrayAdapter<Game> {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Game game = games.get(position);
+        Game game = getItem(position);
         return populateView(convertView, game);
     }
 
@@ -40,6 +40,11 @@ public class LiveStreamsListAdapter extends ArrayAdapter<Game> {
             feedType.setText(game.getFeedType());
         }
         return convertView;
+    }
+
+    @Override
+    public Game getItem(int position) {
+        return games.get(position);
     }
 
     public void setGames(List<Game> games) {

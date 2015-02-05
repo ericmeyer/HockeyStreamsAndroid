@@ -12,5 +12,6 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="placeholder">Placeholder</string>
     <string name="live_streams_list_refreshing">Getting list of live games…</string>
+    <string name="title_activity_watch_live_stream">WatchLiveStream</string>
 
 </resources>

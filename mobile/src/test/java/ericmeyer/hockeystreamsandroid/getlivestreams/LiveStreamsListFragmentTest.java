@@ -1,6 +1,7 @@
 package ericmeyer.hockeystreamsandroid.getlivestreams;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.widget.Button;
@@ -13,10 +14,13 @@ import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
+import org.robolectric.shadows.ShadowActivity;
 import org.robolectric.util.FragmentTestUtil;
 
 import ericmeyer.hockeystreamsandroid.R;
+import ericmeyer.hockeystreamsandroid.watchlivestream.WatchLiveStreamActivity;
 import ericmeyer.hockeystreamssharedandroid.login.LocalCurrentUser;
+import hockeystreamsclient.getlive.Game;
 import hockeystreamsclient.getlive.GetLiveAction;
 import hockeystreamsclient.login.Response;
 
@@ -94,6 +98,29 @@ public class LiveStreamsListFragmentTest {
 
         assertThat(liveStreamsFragment.getGetLiveAction(), is(notNullValue()));
         assertThat(liveStreamsFragment.getGetLiveAction().getView(), CoreMatchers.<Object>is(sameInstance(liveStreamsFragment)));
+    }
+
+    @Test
+    public void testWatchesAGame() {
+        FragmentTestUtil.startFragment(liveStreamsFragment);
+        hockeystreamsclient.getlive.Response response = new hockeystreamsclient.getlive.Response();
+
+        Game clickedGame = new Game();
+        clickedGame.setID("123");
+
+        response.addGame(new Game());
+        response.addGame(clickedGame);
+
+        liveStreamsFragment.liveStreamsFound(response);
+        liveStreamsFragment.onListItemClick(null, null, 1, 0);
+
+        ShadowActivity shadowActivity = Robolectric.shadowOf(liveStreamsFragment.getActivity());
+        Intent nextActivity = shadowActivity.getNextStartedActivity();
+        assertThat(nextActivity, is(notNullValue()));
+        String expectedActivity = WatchLiveStreamActivity.class.getName();
+        assertThat(nextActivity.getComponent().getClassName(), is(equalTo(expectedActivity)));
+
+        assertThat(nextActivity.getStringExtra("StreamID"), is(equalTo("123")));
     }
 
 }

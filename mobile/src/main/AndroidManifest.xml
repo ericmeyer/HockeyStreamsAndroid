@@ -22,6 +22,10 @@
             android:name=".getlivestreams.LiveStreamsListActivity"
             android:label="@string/title_activity_live_streams_list" >
         </activity>
+        <activity
+            android:name=".watchlivestream.WatchLiveStreamActivity"
+            android:label="@string/title_activity_watch_live_stream" >
+        </activity>
     </application>
 
 </manifest>

@@ -1,19 +1,23 @@
 package ericmeyer.hockeystreamsandroid.getlivestreams;
 
 import android.app.ListFragment;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import org.apache.http.impl.client.DefaultHttpClient;
 
 import ericmeyer.hockeystreamsandroid.R;
+import ericmeyer.hockeystreamsandroid.watchlivestream.WatchLiveStreamActivity;
 import ericmeyer.hockeystreamssharedandroid.login.LocalCurrentUser;
 import hockeystreamsclient.apache.RemoteClient;
+import hockeystreamsclient.getlive.Game;
 import hockeystreamsclient.getlive.GetLiveAction;
 import hockeystreamsclient.getlive.LiveStreamsView;
 import hockeystreamsclient.getlive.Response;
@@ -46,6 +50,15 @@ public class LiveStreamsListFragment extends ListFragment implements LiveStreams
         status = (TextView) view.findViewById(R.id.live_streams_list_status);
         setUpRefreshButton(view);
         return view;
+    }
+
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        Intent intent = new Intent(this.getActivity(), WatchLiveStreamActivity.class);
+        Game game = adapter.getItem(position);
+        intent.putExtra("StreamID", game.getID());
+        startActivity(intent);
     }
 
     private void setUpRefreshButton(View view) {
