@@ -13,5 +13,6 @@
     <string name="placeholder">Placeholder</string>
     <string name="live_streams_list_refreshing">Getting list of live games…</string>
     <string name="title_activity_watch_live_stream">WatchLiveStream</string>
+    <string name="watch_live_stream_start">Start</string>
 
 </resources>
